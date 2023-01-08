@@ -41,20 +41,41 @@ function calhell(){
                             console.log("6")
                             setTimeout(() => {
                                 console.log("7")
-                            }, 1000);
-                        }, 1000);
-                    }, 1000);
-                }, 1000);
-            }, 1000);
-        }, 1000);
-    }, 1000);
+                            }, 9000);
+                        }, 9000);
+                    }, 9000);
+                }, 9000);
+            }, 9000);
+        }, 9000);
+    }, 9000);
                 
 }
 
 calhell();
 
 // Q3 promise print 1 to 7
+
+// promise chaning with diffrent timeout
+function vowels(alpha,time){
+    return new Promise((res,rej)=>{
+        setTimeout(()=>{
+                console.log(alpha)
+                res("promise resolved")
+        },time)
+    })
+}
+
+function printVowels(){
+    vowels("then a",12000)
+    .then(()=>vowels("then e",10000))
+    .then(()=>vowels("then i",14000))
+    .then(()=>vowels("then o",13000))
+    .then(()=>vowels("then u",11000))
+}
+printVowels()// a e i o u 
 console.log("promises....")
+
+// async and await
 
 async function pause(timeout) {
     return new Promise(resolve => setTimeout(resolve, timeout))
@@ -69,6 +90,28 @@ async function countDown(count) {
 }
 
 countDown(1);
+// one more example for async await
+
+function alphabets(alpha,time){
+    return new Promise((res,rej)=>{
+        setTimeout(()=>{
+                console.log(alpha)
+                res("promise resolved")
+        },time)
+    })
+}
+
+async function awaitVowels(){
+    await alphabets("await a",12000)
+    await alphabets("await e",11000)
+    await alphabets("await i",14000)
+    await alphabets("await o",13000)
+    await alphabets("await u",11000)
+}
+awaitVowels()
+
+
+
 
 
 
